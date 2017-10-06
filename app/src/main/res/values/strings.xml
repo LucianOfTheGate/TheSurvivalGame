@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SurvivalGame</string>
+    <string name="new_game">Single Player</string>
+    <string name="match">Match</string>
+    <string name="scores">Score</string>
+    <string name="settings">Settings</string>
+    <string name="quit">Quit</string>
+    <string name="back">Back</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="rand_char">Random Character</string>
+    <string name="choose_char">Choose Character</string>
+    <string name="exit">Exit</string>
+    <string name="should_quit">Do you wish to Quit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>
