@@ -37,6 +37,7 @@ public class SinglePlayerFragment extends Fragment implements View.OnClickListen
 
         switch(v.getId()){
             case R.id.Difficulty:
+                startActivity(new Intent(getActivity().getApplicationContext(),DifficultyActivity.class));
                 break;
             case R.id.RandomChar:
                 break;
