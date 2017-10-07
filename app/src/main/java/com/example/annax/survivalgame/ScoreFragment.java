@@ -1,6 +1,7 @@
 package com.example.annax.survivalgame;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -15,7 +16,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import java.io.File;
-
+import java.net.URI;
+import java.util.List;
+import java.util.LinkedList;
 import static android.app.Activity.RESULT_OK;
 
 /**
@@ -26,14 +29,24 @@ public class ScoreFragment extends Fragment implements View.OnClickListener{
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.score_fragment, container, false);
-        Button scoreBack = (Button)v.findViewById(R.id.ScoreBack);
+        Button scoreBack = v.findViewById(R.id.ScoreBack);
+        Button facebook = v.findViewById(R.id.Facebook);
         scoreBack.setOnClickListener(this);
+        facebook.setOnClickListener(this);
         return v;
     }
 
     public void onClick(View view){
         if(view.getId()==R.id.ScoreBack){
             getActivity().finish();
+        } else if (view.getId() == R.id.Facebook){
+            Uri facebook = Uri.parse("https://www.facebook.com/");
+            Intent fIntent = new Intent(Intent.ACTION_VIEW, facebook);
+            PackageManager packageManager = getActivity().getPackageManager();
+            List<ResolveInfo> activities = packageManager.queryIntentActivities(fIntent, 0);
+            if( activities.size() > 0) {
+                startActivity(fIntent);
+            }
         }
     }
 
