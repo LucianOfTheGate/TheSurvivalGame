@@ -13,4 +13,6 @@
     <string name="should_quit">Do you wish to Quit?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="title_activity_match">MatchActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>
