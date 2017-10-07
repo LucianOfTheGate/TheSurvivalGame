@@ -58,6 +58,9 @@ public class GameOptionFragment extends Fragment implements View.OnClickListener
             case R.id.SinglePlayer:
                 startActivity(new Intent(getActivity().getApplicationContext(),SinglePlayerActivity.class));
                 break;
+            case R.id.Settings:
+                startActivity(new Intent(getActivity().getApplicationContext(),SettingsActivity.class));
+                break;
             case R.id.Multiplayer:
                 startActivity(new Intent(getActivity().getApplicationContext(), MatchActivity.class));
                 break;

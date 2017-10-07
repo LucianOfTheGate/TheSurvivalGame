@@ -15,7 +15,7 @@ import android.widget.Button;
 public class DifficultyFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_main, container, false);
+        View v = inflater.inflate(R.layout.difficulty_fragment, container, false);
 
         Button itemSpwan = (Button)v.findViewById(R.id.ItemSpawn);
         itemSpwan.setOnClickListener(this);
