@@ -37,10 +37,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.annax.survivalgame.GameOptionActivity" />
         </activity>
-        <activity
-            android:name=".Sound"
-            android:label="@string/title_activity_sound"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

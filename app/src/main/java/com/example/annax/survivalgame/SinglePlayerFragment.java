@@ -26,6 +26,8 @@ public class SinglePlayerFragment extends Fragment implements View.OnClickListen
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.single_player_fragment, container, false);
 
+        Button difficulty = (Button)v.findViewById(R.id.Difficulty);
+        difficulty.setOnClickListener(this);
         Button singleBack = (Button)v.findViewById(R.id.SingleBack);
         singleBack.setOnClickListener(this);
 
