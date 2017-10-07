@@ -30,8 +30,7 @@ public class SinglePlayerFragment extends Fragment implements View.OnClickListen
         difficulty.setOnClickListener(this);
         Button singleBack = (Button)v.findViewById(R.id.SingleBack);
         singleBack.setOnClickListener(this);
-        Button difficulty = (Button)v.findViewById(R.id.Difficulty);
-        difficulty.setOnClickListener(this);
+
 
         return v;
     }
