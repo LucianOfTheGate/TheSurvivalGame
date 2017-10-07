@@ -27,6 +27,7 @@
             android:parentActivityName=".GameOptionActivity" />
         <activity android:name=".DifficultyActivity"
             android:parentActivityName=".SinglePlayerActivity"/>
+
         <activity
             android:name=".MatchActivity"
             android:label="@string/title_activity_match"
