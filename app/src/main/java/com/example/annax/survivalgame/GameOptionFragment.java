@@ -36,6 +36,7 @@ public class GameOptionFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void onResume() {
+        Log.d(TAG, "Our Group Called OnResume()");
         super.onResume();
         try {
             ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
@@ -68,6 +69,18 @@ public class GameOptionFragment extends Fragment implements View.OnClickListener
                 showQuitAppDialog();
                 break;
         }
+    }
+
+    @Override
+    public void onPause() {
+        Log.d(TAG, "Our Group Called OnPause()");
+        super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        Log.d(TAG, "Our Group Called OnStop()");
+        super.onStop();
     }
 
     private void showQuitAppDialog() {
