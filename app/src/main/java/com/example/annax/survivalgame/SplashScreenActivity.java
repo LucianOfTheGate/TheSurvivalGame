@@ -15,15 +15,8 @@ public class SplashScreenActivity extends SingleFragmentActivity {
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d(getClass().getSimpleName(), "Our Group Called OnCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
-    }
-
-    @Override
-    protected void onStart() {
-        Log.d(getClass().getSimpleName(), "Our Group Called OnStart()");
-        super.onStart();
     }
 
 }

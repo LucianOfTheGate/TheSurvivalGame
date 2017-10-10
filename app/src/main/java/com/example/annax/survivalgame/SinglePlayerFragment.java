@@ -2,6 +2,7 @@ package com.example.annax.survivalgame;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -34,7 +35,7 @@ public class SinglePlayerFragment extends Fragment implements View.OnClickListen
 
         return v;
     }
-//testing commit
+
     @Override
     public void onClick(View v){
 
@@ -50,6 +51,42 @@ public class SinglePlayerFragment extends Fragment implements View.OnClickListen
                 getActivity().finish();
                 break;
         }
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "Our Group Called OnCreate()");
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onStart() {
+        Log.d(TAG, "Our Group Called OnStart()");
+        super.onStart();
+    }
+
+    @Override
+    public void onResume() {
+        Log.d(TAG, "Our Group Called OnResume()");
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        Log.d(TAG, "Our Group Called OnPause()");
+        super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        Log.d(TAG, "Our Group Called OnStop()");
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.d(TAG, "Our Group Called onDestroy()");
+        super.onDestroy();
     }
 
 }
