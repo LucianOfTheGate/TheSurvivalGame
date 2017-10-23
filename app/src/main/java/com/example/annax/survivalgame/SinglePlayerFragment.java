@@ -1,34 +1,31 @@
 package com.example.annax.survivalgame;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.nfc.Tag;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import java.io.File;
-
-import static android.app.Activity.RESULT_OK;
+import static com.example.annax.survivalgame.SingleFragmentActivity.enableSoundEffect;
 
 public class SinglePlayerFragment extends Fragment implements View.OnClickListener {
 
     private final String TAG = getClass().getSimpleName();
-
+    private MediaPlayer mp = null;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.single_player_fragment, container, false);
 
+        mp = MediaPlayer.create(getActivity(), R.raw.sound_effect1);
         Button difficulty = (Button)v.findViewById(R.id.Difficulty);
+        Button randomChar = (Button)v.findViewById(R.id.RandomChar);
+        Button chooseChar = (Button)v.findViewById(R.id.ChooseChar);
         difficulty.setOnClickListener(this);
+        randomChar.setOnClickListener(this);
+        chooseChar.setOnClickListener(this);
         Button singleBack = (Button)v.findViewById(R.id.SingleBack);
         singleBack.setOnClickListener(this);
 
@@ -41,13 +38,25 @@ public class SinglePlayerFragment extends Fragment implements View.OnClickListen
 
         switch(v.getId()){
             case R.id.Difficulty:
+                if(enableSoundEffect){
+                    mp.start();
+                }
                 startActivity(new Intent(getActivity().getApplicationContext(),DifficultyActivity.class));
                 break;
             case R.id.RandomChar:
+                if(enableSoundEffect){
+                    mp.start();
+                }
                 break;
             case R.id.ChooseChar:
+                if(enableSoundEffect){
+                    mp.start();
+                }
                 break;
             case R.id.SingleBack:
+                if(enableSoundEffect){
+                    mp.start();
+                }
                 getActivity().finish();
                 break;
         }

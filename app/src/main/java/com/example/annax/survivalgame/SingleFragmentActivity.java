@@ -6,10 +6,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.annax.survivalgame.R;
-
 public abstract class SingleFragmentActivity extends AppCompatActivity {
 
+    public static boolean enableSoundEffect = true;
+    public static boolean enableCommunication_m = true;
     protected abstract Fragment createFragment();
 
     @LayoutRes

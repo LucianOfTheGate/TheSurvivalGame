@@ -39,6 +39,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.annax.survivalgame.GameOptionActivity" />
         </activity>
+        <service android:enabled="true" android:name=".BackgroundMusicService" />
     </application>
-
 </manifest>

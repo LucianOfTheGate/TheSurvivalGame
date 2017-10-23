@@ -2,7 +2,6 @@ package com.example.annax.survivalgame;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 
 public class SplashScreenActivity extends SingleFragmentActivity {
     @Override
@@ -18,5 +17,8 @@ public class SplashScreenActivity extends SingleFragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
     }
-
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
 }

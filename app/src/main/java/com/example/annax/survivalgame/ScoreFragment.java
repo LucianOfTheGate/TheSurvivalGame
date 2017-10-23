@@ -2,24 +2,18 @@ package com.example.annax.survivalgame;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import java.io.File;
-import java.net.URI;
 import java.util.List;
-import java.util.LinkedList;
-import static android.app.Activity.RESULT_OK;
+
+import static com.example.annax.survivalgame.SingleFragmentActivity.enableSoundEffect;
 
 /**
  * Created by annax on 10/2/2017.
@@ -27,8 +21,11 @@ import static android.app.Activity.RESULT_OK;
 
 public class ScoreFragment extends Fragment implements View.OnClickListener{
 
+    private MediaPlayer mp = null;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.score_fragment, container, false);
+
+        mp = MediaPlayer.create(getActivity(), R.raw.sound_effect1);
         Button scoreBack = v.findViewById(R.id.ScoreBack);
         Button facebook = v.findViewById(R.id.Facebook);
         scoreBack.setOnClickListener(this);
@@ -38,8 +35,14 @@ public class ScoreFragment extends Fragment implements View.OnClickListener{
 
     public void onClick(View view){
         if(view.getId()==R.id.ScoreBack){
+            if(enableSoundEffect){
+                mp.start();
+            }
             getActivity().finish();
         } else if (view.getId() == R.id.Facebook){
+            if(enableSoundEffect){
+                mp.start();
+            }
             Uri facebook = Uri.parse("https://www.facebook.com/");
             Intent fIntent = new Intent(Intent.ACTION_VIEW, facebook);
             PackageManager packageManager = getActivity().getPackageManager();
