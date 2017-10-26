@@ -10,11 +10,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.List;
@@ -30,12 +32,12 @@ public class ScoreFragment extends Fragment implements View.OnClickListener{
 
     private MediaPlayer mp = null;
     private SharedPreferences sharedPref = null;
-    LinearLayout linearLayout = null;
+    LinearLayout tableLayout = null;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.score_fragment, container, false);
         sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         mp = MediaPlayer.create(getActivity(), R.raw.sound_effect1);
-        linearLayout = v.findViewById(R.id.scoreHistory);
+        tableLayout = v.findViewById(R.id.scoreHistory);
         setScoreHistory();
         Button enterName = v.findViewById(R.id.enterName);
         Button scoreBack = v.findViewById(R.id.ScoreBack);
@@ -76,13 +78,22 @@ public class ScoreFragment extends Fragment implements View.OnClickListener{
     private void setScoreHistory(){
         Map<String,?> keys = sharedPref.getAll();
         for(Map.Entry<String,?> entry : keys.entrySet()){
-            TextView textView = new TextView(getActivity());
-            textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT));
-            textView.setTextSize(25);
-            textView.setText(entry.getKey() + " : " +
-                    entry.getValue().toString());
-            linearLayout.addView(textView);
+            TableRow row = new TableRow(getActivity());
+            row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT));
+            row.setPadding(5, 5, 5,5);
+            row.setGravity(Gravity.CENTER_VERTICAL);
+            TextView name = new TextView(getActivity());
+            TextView score = new TextView(getActivity());
+            name.setTextSize(20);
+            name.setWidth(500);
+            name.setPadding(80,0,0,0);
+            score.setWidth(500);
+            score.setTextSize(20);
+            name.setText(entry.getKey());
+            score.setText(entry.getValue().toString());
+            row.addView(name);
+            row.addView(score);
+            tableLayout.addView(row);
         }
     }
 

@@ -38,8 +38,11 @@ public class EnterNameDialogFragment extends DialogFragment {
                 Random r = new Random();
                 int score = r.nextInt(100 - 50) + 50;
                 SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putInt(mEditText, score);
-                editor.commit();
+                int oldScore = sharedPref.getInt(mEditText,0);
+                if(score > oldScore) {
+                    editor.putInt(mEditText, score);
+                    editor.commit();
+                }
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
