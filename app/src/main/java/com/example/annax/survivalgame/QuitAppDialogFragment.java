@@ -21,7 +21,7 @@ public class QuitAppDialogFragment extends DialogFragment {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent svc=new Intent(getActivity(), BackgroundMusicService.class);
                         getActivity().stopService(svc);
-                        System.exit(0);
+                        getActivity().finish();
                     }
                 })
                 .setNegativeButton(getActivity().getResources().getString(R.string.no), new DialogInterface.OnClickListener() {

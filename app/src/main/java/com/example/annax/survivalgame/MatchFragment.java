@@ -84,12 +84,14 @@ public class MatchFragment  extends Fragment implements View.OnClickListener {
                 getActivity().finish();
             }
             if(matches.contains("menu")){
-                startActivity(new Intent(getActivity().getApplicationContext(), GameOptionActivity.class));
+                getActivity().finish();
             }
             if(matches.contains("score")){
+                getActivity().finish();
                 startActivity(new Intent(getActivity().getApplicationContext(), ScoresActivity.class));
             }
             if(matches.contains("setting")){
+                getActivity().finish();
                 startActivity(new Intent(getActivity().getApplicationContext(), SettingsActivity.class));
             }
 
