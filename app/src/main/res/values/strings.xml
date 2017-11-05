@@ -17,4 +17,6 @@
     <string name="action_settings">Settings</string>
     <string name="item_spwan">Item Spwan Rate</string>
     <string name="monster_spawn">Monster Spwan Rate</string>
+    <string name="facebook_app_id">com.example.annax.survivalgame</string>
+    <string name="fb_login_protocol_scheme">fbcom.example.annax.survivalgame</string>
 </resources>

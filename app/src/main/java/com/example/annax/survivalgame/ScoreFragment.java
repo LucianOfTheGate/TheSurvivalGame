@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,7 @@ public class ScoreFragment extends Fragment implements View.OnClickListener{
         sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         mp = MediaPlayer.create(getActivity(), R.raw.sound_effect1);
         tableLayout = v.findViewById(R.id.scoreHistory);
+        createInitialScoresMap();
         setScoreHistory();
         Button enterName = v.findViewById(R.id.enterName);
         Button scoreBack = v.findViewById(R.id.ScoreBack);
@@ -76,11 +78,13 @@ public class ScoreFragment extends Fragment implements View.OnClickListener{
     }
 
     private void setScoreHistory(){
-        Map<String,?> keys = sharedPref.getAll();
-        for(Map.Entry<String,?> entry : keys.entrySet()){
+        Map<String, ?> keys = sharedPref.getAll();
+        //For the sake of everyone's sanity the scores shall be sorted in order you expect
+        List<Map.Entry<String, ?>> scores = sortScoreMap(keys);
+        for(Map.Entry<String,?> entry : scores){
             TableRow row = new TableRow(getActivity());
             row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT));
-            row.setPadding(5, 5, 5,5);
+            row.setPadding(5, 5, 5, 5);
             row.setGravity(Gravity.CENTER_VERTICAL);
             TextView name = new TextView(getActivity());
             TextView score = new TextView(getActivity());
@@ -95,6 +99,48 @@ public class ScoreFragment extends Fragment implements View.OnClickListener{
             row.addView(score);
             tableLayout.addView(row);
         }
+    }
+
+    private List<Map.Entry<String, ?>> sortScoreMap(Map<String, ?> keys) {
+        //Useful variables
+        List<Map.Entry<String, ?>> values = new LinkedList<>();
+        List<Map.Entry<String, ?>> temp = new LinkedList<>();
+
+        //Get all of the values (not keys) within the map
+        //[It does not matter if there are duplicate values]
+        for (Map.Entry<String, ?> entry : keys.entrySet()) {
+            temp.add(entry);
+        }
+
+        //Uses insertion sort to sort the list
+        //[Insertion sort is used mainly for my peace of mind]
+        //[I also forgot how to write insertion sort so I had to ask google (tutorials point)]
+        int length = temp.size();
+        for (int i = 1; i < length; i++) {
+            Map.Entry<String, ?> value = temp.get(i);
+            int j = i - 1;
+            while ((j > -1) && ((Integer)temp.get(j).getValue() > (Integer) value.getValue())) {
+                temp.set(j + 1, temp.get(j));
+                j--;
+            }
+            temp.set(j + 1, value);
+        }
+
+        //Reverse the order of the entries
+        for (int k = 0; k < length; k++)
+            values.add(k, temp.get(length-k-1));
+
+        return values;
+    }
+    private void createInitialScoresMap() {
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt("J.T. Barrett", 500);
+        editor.putInt("David Hasslehoff",1000);
+        editor.putInt("Julius Caeser", 2000);
+        editor.putInt("Sir Robert Walpole", 3000);
+        editor.putInt("Char Aznable", 4000);
+        editor.putInt("Ur Mom", 4050);
+        editor.commit();
     }
 
 }
