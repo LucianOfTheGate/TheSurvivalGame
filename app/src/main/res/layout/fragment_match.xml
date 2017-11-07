@@ -4,16 +4,6 @@
     android:layout_height="match_parent">
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/VoiceControl"
-        android:text="Voice Control"
-        android:layout_marginBottom="0dp"/>
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/VoiceList"></ListView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
