@@ -20,13 +20,19 @@ public class SinglePlayerFragment extends Fragment implements View.OnClickListen
         View v = inflater.inflate(R.layout.single_player_fragment, container, false);
 
         mp = MediaPlayer.create(getActivity(), R.raw.sound_effect1);
+
+        //Create buttons
         Button difficulty = (Button)v.findViewById(R.id.Difficulty);
         Button randomChar = (Button)v.findViewById(R.id.RandomChar);
         Button chooseChar = (Button)v.findViewById(R.id.ChooseChar);
+        Button singleBack = (Button)v.findViewById(R.id.SingleBack);
+        Button start = (Button)v.findViewById(R.id.Start);
+
+        //Create click action commands
+        start.setOnClickListener(this);
         difficulty.setOnClickListener(this);
         randomChar.setOnClickListener(this);
         chooseChar.setOnClickListener(this);
-        Button singleBack = (Button)v.findViewById(R.id.SingleBack);
         singleBack.setOnClickListener(this);
 
 
@@ -58,6 +64,12 @@ public class SinglePlayerFragment extends Fragment implements View.OnClickListen
                     mp.start();
                 }
                 getActivity().finish();
+                break;
+            case R.id.Start:
+                if(enableSoundEffect){
+                    mp.start();
+                }
+                startActivity(new Intent(getActivity().getApplicationContext(), UnityPlayerActivity.class));
                 break;
         }
     }
