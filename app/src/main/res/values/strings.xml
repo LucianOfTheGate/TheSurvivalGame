@@ -19,4 +19,6 @@
     <string name="monster_spawn">Monster Spwan Rate</string>
     <string name="facebook_app_id">1496468097106243</string>
     <string name="fb_login_protocol_scheme">fb1496468097106243</string>
+    <string name="start">Start!</string>
+    <string name="UnityPlayerActivity">UnityPlayerActivity</string>
 </resources>
