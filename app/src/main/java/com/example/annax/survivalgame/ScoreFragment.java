@@ -33,20 +33,30 @@ public class ScoreFragment extends Fragment implements View.OnClickListener{
 
     private MediaPlayer mp = null;
     private SharedPreferences sharedPref = null;
+    private
     LinearLayout tableLayout = null;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.score_fragment, container, false);
         sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         mp = MediaPlayer.create(getActivity(), R.raw.sound_effect1);
         tableLayout = v.findViewById(R.id.scoreHistory);
+
+        //Initialize score history
         createInitialScoresMap();
         setScoreHistory();
+
+        //Initialize buttons
         Button enterName = v.findViewById(R.id.enterName);
         Button scoreBack = v.findViewById(R.id.ScoreBack);
         Button facebook = v.findViewById(R.id.Facebook);
+        Button loginButton = v.findViewById(R.id.login_button);
+
+        //Create button listeners
         enterName.setOnClickListener(this);
         scoreBack.setOnClickListener(this);
         facebook.setOnClickListener(this);
+        loginButton.setOnClickListener(this);
+
         return v;
     }
 
@@ -69,6 +79,8 @@ public class ScoreFragment extends Fragment implements View.OnClickListener{
             }
         } else if (view.getId() == R.id.enterName) {
             showEnterNameDialog();
+        } else if (view.getId() == R.id.login_button) {
+
         }
     }
     private void showEnterNameDialog() {
