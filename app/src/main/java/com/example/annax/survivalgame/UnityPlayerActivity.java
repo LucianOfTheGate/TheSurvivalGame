@@ -8,23 +8,22 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.Window;
+import android.view.WindowManager;
 
-import com.unity3d.player.*;
+import com.unity3d.player.UnityPlayer;
 
 public class UnityPlayerActivity extends Activity
 {
     protected UnityPlayer mUnityPlayer; // don't change the name of this variable; referenced from native code
-
     // Setup activity layout
     @Override protected void onCreate (Bundle savedInstanceState)
     {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
-
         getWindow().setFormat(PixelFormat.RGBX_8888); // <--- This makes xperia play happy
-
         mUnityPlayer = new UnityPlayer(this);
         setContentView(mUnityPlayer);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON); //Keep screen on during game
         mUnityPlayer.requestFocus();
     }
 

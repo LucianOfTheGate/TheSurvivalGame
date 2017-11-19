@@ -1,8 +1,10 @@
 package com.example.annax.survivalgame;
 
+import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
@@ -19,6 +21,7 @@ import static com.example.annax.survivalgame.SingleFragmentActivity.enableSoundE
 public class GameOptionFragment extends Fragment implements View.OnClickListener {
     private final String TAG = getClass().getSimpleName();
     private MediaPlayer mp = null;
+    private PowerManager powerManager = null;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_main, container, false);
@@ -36,7 +39,13 @@ public class GameOptionFragment extends Fragment implements View.OnClickListener
         quit.setOnClickListener(this);
 
         Intent svc=new Intent(getActivity(), BackgroundMusicService.class);
-        getActivity().startService(svc);
+        powerManager = (PowerManager) getActivity().getSystemService(Context.POWER_SERVICE);
+        if(!powerManager.isPowerSaveMode()){
+            getActivity().startService(svc);
+        }
+        else{
+            enableSoundEffect = false;
+        }
         setHasOptionsMenu(true);
         return v;
     }
@@ -44,6 +53,7 @@ public class GameOptionFragment extends Fragment implements View.OnClickListener
     @Override
     public void onResume() {
         super.onResume();
+        Intent svc=new Intent(getActivity(), BackgroundMusicService.class);
         try {
             ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
             if (actionBar != null) {
@@ -52,6 +62,13 @@ public class GameOptionFragment extends Fragment implements View.OnClickListener
         }
         catch (NullPointerException npe) {
             Log.e(TAG, "Could not set subtitle");
+        }
+        if(!powerManager.isPowerSaveMode()){
+            getActivity().startService(svc);
+        }
+        else{
+            getActivity().stopService(svc);
+            enableSoundEffect = false;
         }
     }
 

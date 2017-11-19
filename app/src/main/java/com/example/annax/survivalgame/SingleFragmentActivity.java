@@ -1,7 +1,9 @@
 package com.example.annax.survivalgame;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.speech.RecognizerIntent;
 import android.support.annotation.LayoutRes;
 import android.support.v4.app.Fragment;
@@ -47,6 +49,17 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.options_menu, menu);
+        return true;
+    }
+
+    public boolean onPrepareOptionsMenu (Menu menu) {
+        PowerManager powerManager = (PowerManager) this.getSystemService(Context.POWER_SERVICE);
+        if (powerManager.isPowerSaveMode()){
+            menu.getItem(0).setEnabled(false);
+        }
+        else{
+            menu.getItem(0).setEnabled(true);
+        }
         return true;
     }
 
