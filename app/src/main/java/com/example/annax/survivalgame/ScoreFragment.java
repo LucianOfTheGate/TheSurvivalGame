@@ -8,6 +8,7 @@ import android.content.pm.ResolveInfo;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.Gravity;
@@ -89,8 +90,8 @@ public class ScoreFragment extends Fragment implements View.OnClickListener{
         }
     }
     private void showEnterNameDialog() {
+        DialogFragment fragment = new EnterNameDialogFragment();
         FragmentManager manager = getFragmentManager();
-        EnterNameDialogFragment fragment = new EnterNameDialogFragment();
         fragment.show(manager, "enter_name");
     }
 
