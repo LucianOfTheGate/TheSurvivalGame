@@ -1,86 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="High Scores"
-        android:textColor="#FFA000"
-        android:textStyle="bold"
-        android:textSize="38dp"
-        android:layout_gravity="center"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/enterName"
-        android:layout_gravity="center_vertical"
-        android:text="Enter your name"
-        android:layout_marginBottom="0dp"/>
-
-
-    <TableLayout
-        android:id="@+id/scoreHistory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
-        <TableRow>
-            <TextView
-                android:text="Name"
-                android:textColor="#0a8ed6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:width="500px"
-                android:textSize="20dp"
-                android:paddingLeft="80px"
-                />
-            <TextView
-                android:text="Score"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:width="500px"
-                android:textSize="20dp"
-                android:textColor="#0a8ed6"
-                 />
-        </TableRow>
-
-    </TableLayout>
-
-
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:gravity="center|bottom"
         android:orientation="vertical"
-        android:layout_gravity="center_vertical">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-
-        <com.facebook.login.widget.LoginButton
-            android:id="@+id/login_button"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp" />
-
+            android:text="High Scores"
+            android:textColor="#FFA000"
+            android:textStyle="bold"
+            android:textSize="38dp"
+            android:layout_gravity="center"
+            />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/Facebook"
+            android:id="@+id/enterName"
             android:layout_gravity="center_vertical"
-            android:text="Go To Facebook"
+            android:text="Enter your name"
             android:layout_marginBottom="0dp"/>
 
-        <Button
-            android:layout_width="match_parent"
+
+        <TableLayout
+            android:id="@+id/scoreHistory"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/ScoreBack"
-            android:text="@string/back"
-            android:layout_marginBottom="0dp"/>
+            >
+            <TableRow>
+                <TextView
+                    android:text="Name"
+                    android:textColor="#0a8ed6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:width="500px"
+                    android:textSize="20dp"
+                    android:paddingLeft="80px"
+                    />
+                <TextView
+                    android:text="Score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:width="500px"
+                    android:textSize="20dp"
+                    android:textColor="#0a8ed6"
+                     />
+            </TableRow>
+
+        </TableLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center|bottom"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical">
+
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Facebook"
+                android:layout_gravity="center_vertical"
+                android:text="Go To Facebook"
+                android:layout_marginBottom="0dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ScoreBack"
+                android:text="@string/back"
+                android:layout_marginBottom="0dp"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

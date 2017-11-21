@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.Window;
-import android.view.WindowManager;
 
 import com.unity3d.player.UnityPlayer;
 
@@ -23,7 +22,7 @@ public class UnityPlayerActivity extends Activity
         getWindow().setFormat(PixelFormat.RGBX_8888); // <--- This makes xperia play happy
         mUnityPlayer = new UnityPlayer(this);
         setContentView(mUnityPlayer);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON); //Keep screen on during game
+        //getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON); //Keep screen on during game
         mUnityPlayer.requestFocus();
     }
 

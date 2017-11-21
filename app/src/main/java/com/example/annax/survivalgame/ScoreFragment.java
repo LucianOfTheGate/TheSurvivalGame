@@ -33,8 +33,9 @@ public class ScoreFragment extends Fragment implements View.OnClickListener{
 
     private MediaPlayer mp = null;
     private SharedPreferences sharedPref = null;
-    private
-    LinearLayout tableLayout = null;
+    private LinearLayout tableLayout = null;
+    private static boolean scoresDeclared = false;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.score_fragment, container, false);
         sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
@@ -42,7 +43,11 @@ public class ScoreFragment extends Fragment implements View.OnClickListener{
         tableLayout = v.findViewById(R.id.scoreHistory);
 
         //Initialize score history
-        createInitialScoresMap();
+        if (!scoresDeclared) {
+            createInitialScoresMap();
+        }
+
+        //We still need to re-sort the scores every time you open the screen
         setScoreHistory();
 
         //Initialize buttons
