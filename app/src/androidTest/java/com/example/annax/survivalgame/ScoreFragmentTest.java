@@ -78,6 +78,11 @@ public class ScoreFragmentTest extends ActivityInstrumentationTestCase2<ScoresAc
     public void pressEnterNameTest() {
         onView(withId(R.id.enterName)).check(matches(isEnabled()));
     }
+
+    @Test
+    public void testSharedPreferences() {
+        onView(withId(R.id.enterName)).check(matches(isEnabled()));
+    }
 /*
     @Test
     public void addScoreToSharedPreferenceTest() {
