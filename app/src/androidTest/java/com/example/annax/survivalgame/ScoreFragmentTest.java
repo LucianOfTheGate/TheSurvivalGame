@@ -1,5 +1,7 @@
 package com.example.annax.survivalgame;
 
+import android.app.DialogFragment;
+import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.test.ActivityInstrumentationTestCase2;
@@ -79,6 +81,10 @@ public class ScoreFragmentTest extends ActivityInstrumentationTestCase2<ScoresAc
     @Test
     public void pressEnterNameTest() {
         onView(withId(R.id.enterName)).check(matches(not(isClickable())));
+        getInstrumentation().waitForIdleSync();
+        Fragment dialog = getActivity().getFragmentManager().findFragmentByTag("enter_name");
+        assertTrue(dialog instanceof DialogFragment);
+        assertTrue(((DialogFragment) dialog).getShowsDialog());
     }
 
     @Test
