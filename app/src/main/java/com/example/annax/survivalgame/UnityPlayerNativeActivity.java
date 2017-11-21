@@ -3,6 +3,8 @@ package com.example.annax.survivalgame;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.unity3d.player.UnityPlayerActivity;
+
 /**
  * @deprecated It's recommended that you base your code directly on UnityPlayerActivity or make your own NativeActitivty implementation.
  **/

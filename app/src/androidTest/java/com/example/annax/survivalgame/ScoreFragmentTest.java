@@ -10,8 +10,10 @@ import org.junit.Test;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.matcher.ViewMatchers.isClickable;
 import static android.support.test.espresso.matcher.ViewMatchers.isEnabled;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
+import static org.hamcrest.Matchers.not;
 
 /**
  * Created by lucas on 11/20/2017.
@@ -76,7 +78,7 @@ public class ScoreFragmentTest extends ActivityInstrumentationTestCase2<ScoresAc
 
     @Test
     public void pressEnterNameTest() {
-        onView(withId(R.id.enterName)).check(matches(isEnabled()));
+        onView(withId(R.id.enterName)).check(matches(not(isClickable())));
     }
 
     @Test

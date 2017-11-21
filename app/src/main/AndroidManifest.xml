@@ -68,8 +68,7 @@
         <activity android:label="@string/UnityPlayerActivity" android:screenOrientation="fullSensor" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection" android:name="com.example.annax.survivalgame.UnityPlayerActivity">
             <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
         </activity>
-
-        <meta-data android:name="unity.build-id" android:value="98c5dfa9-3909-46d2-b6c3-1ea71522135e" />
+        <meta-data android:name="unity.build-id" android:value="e9e99265-9a48-42e0-9bd2-20c11d15a124" />
         <meta-data android:name="unity.splash-mode" android:value="0" />
         <meta-data android:name="unity.splash-enable" android:value="True" />
 
